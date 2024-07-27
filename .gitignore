@@ -1,0 +1,6 @@
+.DS_Store
+.ipynb_checkpoints
+project.env
+.build
+.idea
+__pycache__
