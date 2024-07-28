@@ -45,6 +45,7 @@ dependencies = [
   "seaborn",
   "transformers",
   "jupyterlab",
+  "wandb",
 
   "build",
   "pytest",

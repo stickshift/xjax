@@ -4,3 +4,4 @@ project.env
 .build
 .idea
 __pycache__
+notebooks/wandb
