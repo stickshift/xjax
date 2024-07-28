@@ -119,4 +119,7 @@ def predict(model: nn.Module, *, X: Array) -> torch.Tensor:
         logits = model(X)
         y_score = torch.sigmoid(logits)
 
+        # Remove extra dimensions
+        y_score = y_score.squeeze()
+
     return y_score
