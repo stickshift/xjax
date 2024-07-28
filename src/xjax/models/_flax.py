@@ -1,4 +1,6 @@
 from functools import partial
+import logging
+from time import time_ns
 from typing import Any, Mapping, Sequence
 
 from flax import linen as nn
@@ -8,7 +10,7 @@ from jax import numpy as jnp
 import optax
 
 from xjax.signals import train_epoch_completed, train_epoch_started
-from xjax.tools import default_arg
+from xjax.tools import default_arg, trace
 
 __all__ = [
     "mlp",
@@ -18,6 +20,9 @@ __all__ = [
 
 
 Parameters = Mapping[str, Any]
+
+# Module logger
+logger = logging.getLogger(__name__)
 
 
 class MLP(nn.Module):
@@ -82,6 +87,8 @@ def train(
     batch_size = default_arg(batch_size, 1)
     learning_rate = default_arg(learning_rate, 0.01)
 
+    start_time = time_ns()
+
     # Batch data
     X_batches, y_batches = _batch(X, y, batch_size)
 
@@ -95,11 +102,12 @@ def train(
     # Iterate over epochs
     for epoch in range(epochs):
         # Emit signal
-        train_epoch_started.send(model, epoch=epoch)
+        train_epoch_started.send(model, epoch=epoch, elapsed=(time_ns() - start_time))
 
         # Iterate over batches
         loss = None
         for i in range(len(X_batches)):
+
             # Compute loss and gradients
             loss, grads = loss_fn(params, X_batches[i], y_batches[i])
 
@@ -110,7 +118,7 @@ def train(
             params = optax.apply_updates(params, updates)
 
         # Emit signal
-        train_epoch_completed.send(model, epoch=epoch, loss=loss)
+        train_epoch_completed.send(model, epoch=epoch, loss=loss, elapsed=(time_ns() - start_time))
 
     return params
 

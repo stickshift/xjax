@@ -22,6 +22,7 @@ def loss_history(history: Sequence, elapsed: float):
     ax.plot(history)
     ax.set_title("Training Loss")
     ax.set_xlabel(f"Epoch ({elapsed:0.1f} elapsed)")
+    ax.set_ylim(0, max(history))
 
     # Replace cell output
     clear_output(wait=True)
