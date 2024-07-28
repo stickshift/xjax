@@ -34,6 +34,7 @@ classifiers = [
 dynamic = ["version"]
 
 dependencies = [
+  "blinker",
   "flax",
   "jax",
   "nbqa[toolchain]",
@@ -127,6 +128,7 @@ ignore = [
   "D203",  # no-blank-line-before-class
   "D213",  # multi-line-summary-second-line
   "D417",  # disable google requirement for docs on every argument
+  "N803",  # allow uppercase args like X
   "N806",  # allow uppercase variables like X
   "PLC2801",  # allow dunder calls
   "PLR6104",  # Ignore suggestions to use mutating |=

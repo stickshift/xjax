@@ -3,9 +3,10 @@
 import jax
 from jax import numpy as jnp
 
-from ._utilities import default_arg
+from xjax.tools import default_arg
 
 __all__ = [
+    "circle",
     "diagonal",
 ]
 
@@ -50,7 +51,7 @@ def circle(*, rng: jax.Array, n: int | None = None) -> tuple[jax.Array, jax.Arra
     # Stack x0, x1 into X
     X = jnp.stack([x0, x1], axis=1)
 
-    # Generate y: 1 if point (x0, x1) is above diagonal
-    y = jnp.where(x1 >= x0, 1.0, 0.0)
+    # Generate y: 1 if point (x0, x1) is within 0.4 of center (0.5, 0.5)
+    y = jnp.where(jnp.sqrt((x0 - 0.5) ** 2 + (x1 - 0.5) ** 2) <= 0.4, 1.0, 0.0)  # noqa: PLR2004
 
     return X, y

@@ -4,19 +4,12 @@ from jax import numpy as jnp
 import xjax
 
 
-def test_diagonal_dataset():
-    #
-    # Givens
-    #
-
-    # I initialized rng
-    rng = jax.random.key(42)
-
+def test_diagonal_dataset(rng: jax.Array):
     #
     # Whens
     #
 
-    # I load diagonal dataset
+    # I generate diagonal dataset
     X, y = xjax.datasets.diagonal(rng=rng)
 
     #
@@ -31,19 +24,12 @@ def test_diagonal_dataset():
             assert y[i] == 0.0
 
 
-def test_circle_dataset():
-    #
-    # Givens
-    #
-
-    # I initialized rng
-    rng = jax.random.key(42)
-
+def test_circle_dataset(rng: jax.Array):
     #
     # Whens
     #
 
-    # I load circle dataset
+    # I generate circle dataset
     X, y = xjax.datasets.circle(rng=rng)
 
     #

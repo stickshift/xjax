@@ -78,6 +78,12 @@ XJAX_PACKAGE := $(PACKAGES_DIR)/xjax-$(PY_VERSION)-py3-none-any.whl
 PACKAGES := $(PACKAGES) $(XJAX_PACKAGE)
 
 #-------------------------------------------------------------------------------
+# Tests
+#-------------------------------------------------------------------------------
+
+PYTEST_OPTS ?= -n20
+
+#-------------------------------------------------------------------------------
 # Linters
 #-------------------------------------------------------------------------------
 
@@ -119,7 +125,15 @@ PHONIES := $(PHONIES) venv
 #-------------------------------------------------------------------------------
 
 $(REQUIREMENTS): pyproject.toml | $(VENV)
+	@echo
+	@echo -e "$(COLOR_H1)# $@$(COLOR_RESET)"
+	@echo
+
 	source $(VENV) && uv pip compile -o $@ pyproject.toml
+
+	@echo -e "$(COLOR_COMMENT)# Add Project$(COLOR_RESET)"
+	echo "-e file://." >> $@
+	@echo
 
 requirements: $(REQUIREMENTS)
 PHONIES := $(PHONIES) requirements
@@ -161,6 +175,27 @@ $(XJAX_PACKAGE): $(XJAX_PACKAGE_REQUIRES) | $(PACKAGES_DIR) $(DEPENDENCIES)
 packages: $(PACKAGES)
 
 PHONIES := $(PHONIES) packages
+
+
+#-------------------------------------------------------------------------------
+# Tests
+#-------------------------------------------------------------------------------
+
+tests: $(DEPENDENCIES)
+	@echo
+	@echo -e "$(COLOR_H1)# $@$(COLOR_RESET)"
+	@echo
+
+	source $(VENV) && pytest $(PYTEST_OPTS) tests
+
+coverage: $(DEPENDENCIES)
+	@echo
+	@echo -e "$(COLOR_H1)# $@$(COLOR_RESET)"
+	@echo
+
+	source $(VENV) && pytest $(PYTEST_OPTS) --cov=kaf --cov-report=html:$(BUILD_DIR)/coverage tests
+
+PHONIES := $(PHONIES) tests coverage
 
 
 #-------------------------------------------------------------------------------
