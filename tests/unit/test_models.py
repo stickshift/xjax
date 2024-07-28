@@ -104,3 +104,36 @@ def test_mlp_2x1_diagonal(rng: jax.Array):
 
     # We should have collected 1 loss for each epoch
     assert len(losses) == epochs
+
+
+def test_xgb_circle(rng: jax.Array):
+    #
+    # Givens
+    #
+
+    # I created circle dataset
+    X, y = xjax.datasets.circle(rng=rng)
+
+    # I split dataset into train and test
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+
+    #
+    # Whens
+    #
+
+    # I create xgb model
+    model = xjax.models.sklearn.xgb_classifier()
+
+    # I train model
+    model = xjax.models.sklearn.train(model, X=X_train, y=y_train)
+
+    # I test model
+    y_score = xjax.models.sklearn.predict(model, X=X_test)
+    auroc = roc_auc_score(y_test, y_score)
+
+    #
+    # Thens
+    #
+
+    # Model should get perfect score
+    assert auroc == approx(1.0, abs=0.001)

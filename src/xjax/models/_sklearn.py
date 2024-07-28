@@ -1,6 +1,7 @@
 """Sci-Kit Learn models."""
 
 from sklearn.linear_model import LogisticRegression
+from xgboost import XGBClassifier
 
 __all__ = [
     "logistic_regression",
@@ -12,6 +13,11 @@ __all__ = [
 def logistic_regression(**kwargs) -> LogisticRegression:
     """Create LR model."""
     return LogisticRegression(**kwargs)
+
+
+def xgb_classifier(**kwargs) -> XGBClassifier:
+    """Create xgb model."""
+    return XGBClassifier(**kwargs)
 
 
 def train(model, *, X, y):

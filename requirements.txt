@@ -288,6 +288,7 @@ numpy==2.0.1
     #   seaborn
     #   tensorstore
     #   transformers
+    #   xgboost
 opt-einsum==3.3.0
     # via jax
 optax==0.2.3
@@ -449,6 +450,7 @@ scipy==1.14.0
     #   jax
     #   jaxlib
     #   scikit-learn
+    #   xgboost
 seaborn==0.13.2
     # via xjax (pyproject.toml)
 send2trash==1.8.3
@@ -560,6 +562,8 @@ webencodings==0.5.1
     #   tinycss2
 websocket-client==1.8.0
     # via jupyter-server
+xgboost==2.1.0
+    # via xjax (pyproject.toml)
 zipp==3.19.2
     # via etils
 -e file://.
