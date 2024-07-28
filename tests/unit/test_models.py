@@ -7,6 +7,7 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import train_test_split
 
 import xjax
+from xjax.signals import train_epoch_completed
 
 # Module logger
 logger = logging.getLogger(__name__)
@@ -62,8 +63,7 @@ def test_mlp_2x1_diagonal(rng: jax.Array):
     # I split dataset into train and test
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
-    # epoch-completed signal
-    epoch_completed = signal("epoch-completed")
+    # Event collectors
     losses = []
 
     #
@@ -74,12 +74,12 @@ def test_mlp_2x1_diagonal(rng: jax.Array):
     rng, model_rng = jax.random.split(rng)
     model, params = xjax.models.flax.mlp(rng=model_rng, inputs=2, outputs=1)
 
-    # I subscribe to epoch_completed signal for model
-    @epoch_completed.connect_via(model)
+    # I subscribe to epoch completed signal for model
+    @train_epoch_completed.connect_via(model)
     def collect_events(sender, epoch, loss, **_):
         losses.append(loss)
 
-        logger.info(f"epoch={epoch}, loss={loss:0.3f}")
+        logger.info(f"epoch={epoch}, loss={loss:0.4f}")
 
     # I train model
     params = xjax.models.flax.train(

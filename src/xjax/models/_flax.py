@@ -1,13 +1,13 @@
 from functools import partial
 from typing import Any, Mapping, Sequence
 
-from blinker import signal
 from flax import linen as nn
 import jax
 from jax import Array
 from jax import numpy as jnp
 import optax
 
+from xjax.signals import train_epoch_completed, train_epoch_started
 from xjax.tools import default_arg
 
 __all__ = [
@@ -82,9 +82,6 @@ def train(
     batch_size = default_arg(batch_size, 1)
     learning_rate = default_arg(learning_rate, 0.01)
 
-    # Signals
-    epoch_completed = signal("epoch-completed")
-
     # Batch data
     X_batches, y_batches = _batch(X, y, batch_size)
 
@@ -97,6 +94,10 @@ def train(
 
     # Iterate over epochs
     for epoch in range(epochs):
+
+        # Emit signal
+        train_epoch_started.send(model, epoch=epoch)
+
         # Iterate over batches
         loss = None
         for i in range(len(X_batches)):
@@ -110,13 +111,19 @@ def train(
             params = optax.apply_updates(params, updates)
 
         # Emit signal
-        epoch_completed.send(model, epoch=epoch, loss=loss)
+        train_epoch_completed.send(model, epoch=epoch, loss=loss)
 
     return params
 
 
 def predict(model: nn.Module, *, params: Parameters, X: Array) -> Array:
-    return nn.sigmoid(model.apply(params, X))
+    # Predict
+    y_score = nn.sigmoid(model.apply(params, X))
+
+    # Remove extra dimensions
+    y_score = y_score.squeeze()
+
+    return y_score
 
 
 def _batch(X: Array, y: Array, batch_size: int) -> tuple[list[Array], list[Array]]:

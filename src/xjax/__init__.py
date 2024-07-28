@@ -1,4 +1,4 @@
-from . import datasets, models, tools
+from . import datasets, models, plots, signals, tools
 
 __all__ = [
     "datasets",
