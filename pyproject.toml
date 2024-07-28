@@ -19,7 +19,7 @@ build-backend = "hatchling.build"
 [project]
 
 name = "xjax"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 
 authors = [
   {name = "Andrew Young", email = "joven@alum.wpi.edu"},

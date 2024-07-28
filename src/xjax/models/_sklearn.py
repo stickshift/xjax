@@ -7,6 +7,7 @@ __all__ = [
     "logistic_regression",
     "predict",
     "train",
+    "xgb_classifier",
 ]
 
 

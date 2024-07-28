@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 
-type Parameters = Mapping[str, Any]
+Parameters = Mapping[str, Any]
 
 
 class MLP(nn.Module):
