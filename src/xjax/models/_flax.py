@@ -94,7 +94,6 @@ def train(
 
     # Iterate over epochs
     for epoch in range(epochs):
-
         # Emit signal
         train_epoch_started.send(model, epoch=epoch)
 

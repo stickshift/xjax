@@ -10,7 +10,6 @@ __all__ = [
 
 def loss_history(history: Sequence):
     """Plot history dynamically."""
-
     # Lookup current axes
     fig = plt.gcf()
     ax = plt.gca()

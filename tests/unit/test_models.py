@@ -1,6 +1,5 @@
 import logging
 
-from blinker import signal
 import jax
 from pytest import approx
 from sklearn.metrics import roc_auc_score

@@ -149,6 +149,7 @@ $(DEPENDENCIES): $(REQUIREMENTS) | $(BUILD_DIR)
 	@echo -e "$(COLOR_COMMENT)# Activate venv: $(COLOR_OK)source $(VENV)$(COLOR_RESET)"
 	@echo -e "$(COLOR_COMMENT)# Deactivate venv: $(COLOR_OK)deactivate$(COLOR_RESET)"
 	@echo
+	touch $@
 
 deps: $(DEPENDENCIES)
 PHONIES := $(PHONIES) deps
@@ -183,17 +184,17 @@ PHONIES := $(PHONIES) packages
 
 tests: $(DEPENDENCIES)
 	@echo
-	@echo -e "$(COLOR_H1)# $@$(COLOR_RESET)"
+	@echo -e "$(COLOR_H1)# Tests$(COLOR_RESET)"
 	@echo
 
 	source $(VENV) && pytest $(PYTEST_OPTS) tests
 
 coverage: $(DEPENDENCIES)
 	@echo
-	@echo -e "$(COLOR_H1)# $@$(COLOR_RESET)"
+	@echo -e "$(COLOR_H1)# Coverage$(COLOR_RESET)"
 	@echo
 
-	source $(VENV) && pytest $(PYTEST_OPTS) --cov=kaf --cov-report=html:$(BUILD_DIR)/coverage tests
+	source $(VENV) && pytest $(PYTEST_OPTS) --cov=xjax --cov-report=html:$(BUILD_DIR)/coverage tests
 
 PHONIES := $(PHONIES) tests coverage
 
