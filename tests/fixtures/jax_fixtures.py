@@ -1,6 +1,8 @@
 import jax
 import pytest
 
+import xjax
+
 __all__ = [
     "rng",
 ]
@@ -8,4 +10,4 @@ __all__ = [
 
 @pytest.fixture
 def rng() -> jax.Array:
-    return jax.random.key(42)
+    return jax.random.key(xjax.tools.seed())
