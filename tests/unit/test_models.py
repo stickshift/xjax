@@ -63,7 +63,7 @@ def test_xgb_circle(rng: jax.Array):
     #
 
     # I create xgb model
-    model = xjax.models.sklearn.xgb_classifier()
+    model = xjax.models.sklearn.xgb_classifier(device="cuda")
 
     # I train model
     model = xjax.models.sklearn.train(model, X=X_train, y=y_train)
@@ -110,10 +110,9 @@ def test_flax_2x1_diagonal(rng: jax.Array):
 
     # I subscribe to epoch completed signal for model
     @train_epoch_completed.connect_via(model)
-    def collect_events(sender, epoch, loss, **_):
+    def collect_events(_, *, epoch, loss, elapsed, **__):
         losses.append(loss)
-
-        logger.info(f"epoch={epoch}, loss={loss:0.4f}")
+        logger.info(f"epoch={epoch}, loss={loss:0.4f}, elapsed={elapsed:0.4f}")
 
     # I train model
     params = xjax.models.flax.train(
@@ -153,7 +152,7 @@ def test_flax_2x5x1_circle(rng: jax.Array):
 
     # I created circle dataset
     rng, dataset_rng = jax.random.split(rng)
-    X, y = xjax.datasets.circle(rng=dataset_rng, n=100000)
+    X, y = xjax.datasets.circle(rng=dataset_rng)
 
     # I split dataset into train and test
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
@@ -168,7 +167,7 @@ def test_flax_2x5x1_circle(rng: jax.Array):
 
     # I log events
     @train_epoch_completed.connect_via(model)
-    def collect_events(sender, epoch, loss, elapsed, **_):
+    def collect_events(_, *, epoch, loss, elapsed, **__):
         logger.info(f"epoch={epoch}, loss={loss:0.4f}, elapsed={elapsed:0.4f}")
 
     # I train model
@@ -223,10 +222,9 @@ def test_torch_2x1_diagonal(rng: jax.Array):
 
     # I subscribe to epoch completed signal for model
     @train_epoch_completed.connect_via(model)
-    def collect_events(sender, epoch, loss, **_):
+    def collect_events(_, *, epoch, loss, elapsed, **__):
         losses.append(loss)
-
-        logger.info(f"epoch={epoch}, loss={loss:0.4f}")
+        logger.info(f"epoch={epoch}, loss={loss:0.4f}, elapsed={elapsed:0.4f}")
 
     # I train model
     model = xjax.models.torch.train(
@@ -265,7 +263,7 @@ def test_torch_2x5x1_circle(rng: jax.Array):
 
     # I created circle dataset
     rng, dataset_rng = jax.random.split(rng)
-    X, y = xjax.datasets.circle(rng=dataset_rng, n=100000)
+    X, y = xjax.datasets.circle(rng=dataset_rng)
 
     # I split dataset into train and test
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
@@ -279,7 +277,7 @@ def test_torch_2x5x1_circle(rng: jax.Array):
 
     # I log events
     @train_epoch_completed.connect_via(model)
-    def collect_events(sender, epoch, loss, elapsed, **_):
+    def collect_events(_, *, epoch, loss, elapsed, **__):
         logger.info(f"epoch={epoch}, loss={loss:0.4f}, elapsed={elapsed:0.4f}")
 
     # I train model

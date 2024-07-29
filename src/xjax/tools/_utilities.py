@@ -1,7 +1,7 @@
 import asyncio as aio
+from contextlib import contextmanager
 import inspect
 import logging
-from contextlib import contextmanager
 from logging import Logger
 from time import time_ns
 
@@ -45,9 +45,9 @@ def trace(
         yield
 
         # Context succeeded
-        _log_msg(log, log_level, f"{prefix} - completed in {(time_ns() - start_time)/1e6}ms")
+        _log_msg(log, log_level, f"{prefix} - completed in {(time_ns() - start_time) / 1e6}ms")
     except aio.CancelledError:
-        _log_msg(log, log_level, f"{prefix} - cancelled in {(time_ns() - start_time)/1e6}ms")
+        _log_msg(log, log_level, f"{prefix} - cancelled in {(time_ns() - start_time) / 1e6}ms")
         raise
     except Exception as e:
         _log_msg(
@@ -77,4 +77,3 @@ def _log_msg(log: Logger, log_level: int, msg: str):
     else:
         error_msg = f"Unsupported log_level {log_level}"
         raise ValueError(error_msg)
-

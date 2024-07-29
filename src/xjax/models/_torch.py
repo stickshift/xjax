@@ -1,6 +1,6 @@
-import logging
 from itertools import pairwise
-from time import time_ns
+import logging
+from time import time
 
 from jax import Array
 import numpy as np
@@ -9,7 +9,7 @@ from torch import nn, optim, tensor
 from torch.utils.data import DataLoader, TensorDataset
 
 from xjax.signals import train_epoch_completed, train_epoch_started
-from xjax.tools import default_arg, trace
+from xjax.tools import default_arg
 
 __all__ = [
     "mlp",
@@ -73,7 +73,7 @@ def train[MT: nn.Module](
     batch_size = default_arg(batch_size, 1)
     learning_rate = default_arg(learning_rate, 0.01)
 
-    start_time = time_ns()
+    start_time = time()
 
     # Convert data
     X = tensor(np.array(X), dtype=torch.float32)
@@ -92,7 +92,7 @@ def train[MT: nn.Module](
     # Iterate over epochs
     for epoch in range(epochs):
         # Emit signal
-        train_epoch_started.send(model, epoch=epoch, elapsed=(time_ns() - start_time))
+        train_epoch_started.send(model, epoch=epoch, elapsed=(time() - start_time))
 
         # Iterate over batches
         loss = None
@@ -112,7 +112,7 @@ def train[MT: nn.Module](
             optimizer.step()
 
         # Emit signal
-        train_epoch_completed.send(model, epoch=epoch, loss=loss, elapsed=(time_ns() - start_time))
+        train_epoch_completed.send(model, epoch=epoch, loss=loss, elapsed=(time() - start_time))
 
     return model
 

@@ -7,7 +7,7 @@ from tests.fixtures.jax_fixtures import (
 )
 
 __all__ = [
-    "enable_parallel_processing",
     "disable_loggers",
+    "enable_parallel_processing",
     "rng",
 ]
