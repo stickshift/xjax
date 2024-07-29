@@ -101,7 +101,6 @@ def train[MT: nn.Module](
         # Iterate over batches
         loss = None
         for X_batch, y_batch in loader:
-
             # Apply model
             logits = model(X_batch)
 

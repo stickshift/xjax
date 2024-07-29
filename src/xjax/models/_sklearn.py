@@ -18,7 +18,9 @@ def logistic_regression(**kwargs) -> LogisticRegression:
 
 def xgb_classifier(**kwargs) -> XGBClassifier:
     """Create xgb model."""
-    return XGBClassifier(**kwargs)
+    device = kwargs.pop("device", "cuda")
+
+    return XGBClassifier(device=device, **kwargs)
 
 
 def train(model, *, X, y):
