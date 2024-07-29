@@ -148,11 +148,11 @@ def test_flax_2x5x1_circle(rng: jax.Array):
     # Hyperparams
     batch_size = 10
     epochs = 10
-    learning_rate = 0.01
+    learning_rate = 0.001
 
     # I created circle dataset
     rng, dataset_rng = jax.random.split(rng)
-    X, y = xjax.datasets.circle(rng=dataset_rng)
+    X, y = xjax.datasets.circle(rng=dataset_rng, n=100000)
 
     # I split dataset into train and test
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
@@ -259,11 +259,11 @@ def test_torch_2x5x1_circle(rng: jax.Array):
     # Hyperparams
     batch_size = 10
     epochs = 10
-    learning_rate = 0.01
+    learning_rate = 0.001
 
     # I created circle dataset
     rng, dataset_rng = jax.random.split(rng)
-    X, y = xjax.datasets.circle(rng=dataset_rng)
+    X, y = xjax.datasets.circle(rng=dataset_rng, n=100000)
 
     # I split dataset into train and test
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)

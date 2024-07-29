@@ -72,12 +72,13 @@ def train[MT: nn.Module](
     epochs = default_arg(epochs, 1)
     batch_size = default_arg(batch_size, 1)
     learning_rate = default_arg(learning_rate, 0.01)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     start_time = time()
 
     # Convert data
-    X = tensor(np.array(X), dtype=torch.float32)
-    y = tensor(np.array(y), dtype=torch.float32)
+    X = tensor(np.array(X), dtype=torch.float32).to(device)
+    y = tensor(np.array(y), dtype=torch.float32).to(device)
 
     # Batch data
     dataset = TensorDataset(X, y)
@@ -89,6 +90,9 @@ def train[MT: nn.Module](
     # Configure optimizer
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
+    # Prep model
+    model = model.to(device)
+
     # Iterate over epochs
     for epoch in range(epochs):
         # Emit signal
@@ -97,6 +101,7 @@ def train[MT: nn.Module](
         # Iterate over batches
         loss = None
         for X_batch, y_batch in loader:
+
             # Apply model
             logits = model(X_batch)
 
@@ -118,9 +123,12 @@ def train[MT: nn.Module](
 
 
 def predict(model: nn.Module, *, X: Array) -> torch.Tensor:
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
     with torch.no_grad():
         # Convert data
-        X = tensor(np.array(X), dtype=torch.float32)
+        model = model.to(device)
+        X = tensor(np.array(X), dtype=torch.float32).to(device)
 
         # Predict
         logits = model(X)
@@ -129,4 +137,4 @@ def predict(model: nn.Module, *, X: Array) -> torch.Tensor:
         # Remove extra dimensions
         y_score = y_score.squeeze()
 
-    return y_score
+    return y_score.cpu()
