@@ -19,7 +19,7 @@ build-backend = "hatchling.build"
 [project]
 
 name = "xjax"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 
 authors = [
   {name = "Andrew Young", email = "joven@alum.wpi.edu"},
@@ -36,7 +36,8 @@ dynamic = ["version"]
 dependencies = [
   "blinker",
   "flax",
-  "jax",
+  "jax[cuda12]",
+  "jupyterlab",
   "nbqa[toolchain]",
   "numpy",
   "pandas",
@@ -44,7 +45,9 @@ dependencies = [
   "scikit-learn",
   "seaborn",
   "transformers",
-  "jupyterlab",
+  "torch",
+  "wandb",
+  "xgboost",
 
   "build",
   "pytest",

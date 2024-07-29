@@ -1,4 +1,6 @@
 from functools import partial
+import logging
+from time import time
 from typing import Any, Mapping, Sequence
 
 from flax import linen as nn
@@ -17,7 +19,10 @@ __all__ = [
 ]
 
 
-type Parameters = Mapping[str, Any]
+Parameters = Mapping[str, Any]
+
+# Module logger
+logger = logging.getLogger(__name__)
 
 
 class MLP(nn.Module):
@@ -82,35 +87,33 @@ def train(
     batch_size = default_arg(batch_size, 1)
     learning_rate = default_arg(learning_rate, 0.01)
 
+    start_time = time()
+
     # Batch data
     X_batches, y_batches = _batch(X, y, batch_size)
-
-    # Configure loss function
-    loss_fn = jax.value_and_grad(jax.jit(partial(_train_step, model)))
 
     # Configure optimizer
     optimizer = optax.adam(learning_rate=learning_rate)
     optimizer_state = optimizer.init(params)
 
+    # Configure loss function
+    loss_fn = jax.value_and_grad(partial(_loss, model))
+
+    # Configure step function
+    step_fn = jax.jit(partial(_step, loss_fn, optimizer))
+
     # Iterate over epochs
     for epoch in range(epochs):
         # Emit signal
-        train_epoch_started.send(model, epoch=epoch)
+        train_epoch_started.send(model, epoch=epoch, elapsed=(time() - start_time))
 
         # Iterate over batches
         loss = None
         for i in range(len(X_batches)):
-            # Compute loss and gradients
-            loss, grads = loss_fn(params, X_batches[i], y_batches[i])
-
-            # Compute updates
-            updates, optimizer_state = optimizer.update(grads, optimizer_state)
-
-            # Update params
-            params = optax.apply_updates(params, updates)
+            params, optimizer_state, loss = step_fn(optimizer_state, params, X_batches[i], y_batches[i])
 
         # Emit signal
-        train_epoch_completed.send(model, epoch=epoch, loss=loss)
+        train_epoch_completed.send(model, epoch=epoch, loss=loss, elapsed=(time() - start_time))
 
     return params
 
@@ -137,7 +140,7 @@ def _batch(X: Array, y: Array, batch_size: int) -> tuple[list[Array], list[Array
     return X_batches, y_batches
 
 
-def _train_step(model: nn.Module, params: Parameters, X_batch: Array, y_batch: Array) -> float:
+def _loss(model: nn.Module, params: Parameters, X_batch: Array, y_batch: Array) -> float:
     # Apply model
     logits = model.apply(params, X_batch)
 
@@ -152,3 +155,16 @@ def _train_step(model: nn.Module, params: Parameters, X_batch: Array, y_batch: A
 
     # Average loss across batch
     return loss.mean()
+
+
+def _step(loss_fn, optimizer, optimizer_state, params, X_batch, y_batch):
+    # Compute loss and gradients
+    loss, grads = loss_fn(params, X_batch, y_batch)
+
+    # Compute updates
+    updates, optimizer_state = optimizer.update(grads, optimizer_state)
+
+    # Update params
+    params = optax.apply_updates(params, updates)
+
+    return params, optimizer_state, loss

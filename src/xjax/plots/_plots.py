@@ -8,7 +8,7 @@ __all__ = [
 ]
 
 
-def loss_history(history: Sequence):
+def loss_history(history: Sequence, elapsed: float):
     """Plot history dynamically."""
     # Lookup current axes
     fig = plt.gcf()
@@ -21,7 +21,8 @@ def loss_history(history: Sequence):
     fig.set_size_inches(5, 3)
     ax.plot(history)
     ax.set_title("Training Loss")
-    ax.set_xlabel("Epoch")
+    ax.set_xlabel(f"Epoch ({elapsed:0.1f} elapsed)")
+    ax.set_ylim(0, max(history))
 
     # Replace cell output
     clear_output(wait=True)
