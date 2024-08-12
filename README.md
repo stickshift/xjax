@@ -2,7 +2,7 @@
 
 # Getting Started
 
-This setup works on an Ubuntu 20.04 machine. 
+This setup works on an Ubuntu 20.04 machine running on a Cloud service like Google cloud or AWs. 
 
 ## Set up Ubuntu Environment 
 
