@@ -23,8 +23,8 @@ project_variables=(
   PY_VERSION
   SOURCE_DATE_EPOCH
 )
-for v in ${project_variables[@]}; do
-  echo "$v=${!v}" >> $tmp_project_env
+for v in "${project_variables[@]}"; do
+  echo "$v=${(P)v}" >> $tmp_project_env
 done
 
 # Only update project.env if they're different.
