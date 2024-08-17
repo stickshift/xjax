@@ -49,6 +49,7 @@ dependencies = [
   "torch",
   "wandb",
   "xgboost",
+  "nltk",
 
   "build",
   "pytest",

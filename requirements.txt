@@ -21,17 +21,17 @@ asttokens==2.4.1
     # via stack-data
 async-lru==2.0.4
     # via jupyterlab
-attrs==23.2.0
+attrs==24.2.0
     # via
     #   jsonschema
     #   referencing
 autopep8==2.3.1
     # via nbqa
-babel==2.15.0
+babel==2.16.0
     # via jupyterlab-server
 beautifulsoup4==4.12.3
     # via nbconvert
-black==24.4.2
+black==24.8.0
     # via
     #   blacken-docs
     #   nbqa
@@ -49,7 +49,7 @@ certifi==2024.7.4
     #   httpx
     #   requests
     #   sentry-sdk
-cffi==1.16.0
+cffi==1.17.0
     # via argon2-cffi-bindings
 charset-normalizer==3.3.2
     # via requests
@@ -58,18 +58,19 @@ chex==0.1.86
 click==8.1.7
     # via
     #   black
+    #   nltk
     #   wandb
 comm==0.2.2
     # via ipykernel
 contourpy==1.2.1
     # via matplotlib
-coverage==7.6.0
+coverage==7.6.1
     # via pytest-cov
 cupy==13.2.0
     # via xjax (pyproject.toml)
 cycler==0.12.1
     # via matplotlib
-debugpy==1.8.2
+debugpy==1.8.5
     # via ipykernel
 decorator==5.1.1
     # via ipython
@@ -97,7 +98,7 @@ filelock==3.15.4
     #   torch
     #   transformers
     #   triton
-flake8==7.1.0
+flake8==7.1.1
     # via nbqa
 flax==0.8.5
     # via xjax (pyproject.toml)
@@ -120,7 +121,7 @@ httpcore==1.0.5
     # via httpx
 httpx==0.27.0
     # via jupyterlab
-huggingface-hub==0.24.2
+huggingface-hub==0.24.5
     # via
     #   tokenizers
     #   transformers
@@ -146,18 +147,18 @@ isort==5.13.2
     # via
     #   nbqa
     #   pylint
-jax==0.4.30
+jax==0.4.31
     # via
     #   xjax (pyproject.toml)
     #   chex
     #   flax
     #   optax
     #   orbax-checkpoint
-jax-cuda12-pjrt==0.4.30
+jax-cuda12-pjrt==0.4.31
     # via jax-cuda12-plugin
-jax-cuda12-plugin==0.4.30
+jax-cuda12-plugin==0.4.31
     # via jax
-jaxlib==0.4.30
+jaxlib==0.4.31
     # via
     #   chex
     #   jax
@@ -173,7 +174,9 @@ jinja2==3.1.4
     #   nbconvert
     #   torch
 joblib==1.4.2
-    # via scikit-learn
+    # via
+    #   nltk
+    #   scikit-learn
 json5==0.9.25
     # via jupyterlab-server
 jsonpointer==3.0.0
@@ -217,7 +220,7 @@ jupyterlab-pygments==0.3.0
     # via nbconvert
 jupyterlab-server==2.27.3
     # via jupyterlab
-jupytext==1.16.3
+jupytext==1.16.4
     # via nbqa
 kiwisolver==1.4.5
     # via matplotlib
@@ -230,7 +233,7 @@ markupsafe==2.1.5
     # via
     #   jinja2
     #   nbconvert
-matplotlib==3.9.1
+matplotlib==3.9.1.post1
     # via seaborn
 matplotlib-inline==0.1.7
     # via
@@ -257,7 +260,7 @@ msgpack==1.0.8
     # via
     #   flax
     #   orbax-checkpoint
-mypy==1.11.0
+mypy==1.11.1
     # via nbqa
 mypy-extensions==1.0.0
     # via
@@ -273,7 +276,7 @@ nbformat==5.10.4
     #   jupytext
     #   nbclient
     #   nbconvert
-nbqa==1.8.5
+nbqa==1.8.7
     # via xjax (pyproject.toml)
 nest-asyncio==1.6.0
     # via
@@ -281,6 +284,8 @@ nest-asyncio==1.6.0
     #   orbax-checkpoint
 networkx==3.3
     # via torch
+nltk==3.8.1
+    # via xjax (pyproject.toml)
 notebook-shim==0.2.4
     # via jupyterlab
 numpy==2.0.1
@@ -314,7 +319,7 @@ nvidia-cuda-cupti-cu12==12.1.105
     # via
     #   jax-cuda12-plugin
     #   torch
-nvidia-cuda-nvcc-cu12==12.5.82
+nvidia-cuda-nvcc-cu12==12.6.20
     # via jax-cuda12-plugin
 nvidia-cuda-nvrtc-cu12==12.1.105
     # via torch
@@ -346,7 +351,7 @@ nvidia-nccl-cu12==2.20.5
     #   jax-cuda12-plugin
     #   torch
     #   xgboost
-nvidia-nvjitlink-cu12==12.5.82
+nvidia-nvjitlink-cu12==12.6.20
     # via
     #   jax-cuda12-plugin
     #   nvidia-cusolver-cu12
@@ -403,7 +408,7 @@ prometheus-client==0.20.0
     # via jupyter-server
 prompt-toolkit==3.0.47
     # via ipython
-protobuf==5.27.2
+protobuf==5.27.3
     # via
     #   orbax-checkpoint
     #   wandb
@@ -417,7 +422,7 @@ ptyprocess==0.7.0
     #   terminado
 pure-eval==0.2.3
     # via stack-data
-pycodestyle==2.12.0
+pycodestyle==2.12.1
     # via
     #   autopep8
     #   flake8
@@ -460,7 +465,7 @@ pytz==2024.1
     # via pandas
 pyupgrade==3.17.0
     # via nbqa
-pyyaml==6.0.1
+pyyaml==6.0.2
     # via
     #   flax
     #   huggingface-hub
@@ -469,7 +474,7 @@ pyyaml==6.0.1
     #   orbax-checkpoint
     #   transformers
     #   wandb
-pyzmq==26.0.3
+pyzmq==26.1.0
     # via
     #   ipykernel
     #   jupyter-client
@@ -480,7 +485,9 @@ referencing==0.35.1
     #   jsonschema-specifications
     #   jupyter-events
 regex==2024.7.24
-    # via transformers
+    # via
+    #   nltk
+    #   transformers
 requests==2.32.3
     # via
     #   huggingface-hub
@@ -497,15 +504,15 @@ rfc3986-validator==0.1.1
     #   jupyter-events
 rich==13.7.1
     # via flax
-rpds-py==0.19.1
+rpds-py==0.20.0
     # via
     #   jsonschema
     #   referencing
-ruff==0.5.5
+ruff==0.5.7
     # via
     #   xjax (pyproject.toml)
     #   nbqa
-safetensors==0.4.3
+safetensors==0.4.4
     # via transformers
 scikit-learn==1.5.1
     # via xjax (pyproject.toml)
@@ -519,11 +526,11 @@ seaborn==0.13.2
     # via xjax (pyproject.toml)
 send2trash==1.8.3
     # via jupyter-server
-sentry-sdk==2.11.0
+sentry-sdk==2.12.0
     # via wandb
 setproctitle==1.3.3
     # via wandb
-setuptools==72.0.0
+setuptools==72.1.0
     # via
     #   chex
     #   jupyterlab
@@ -546,9 +553,9 @@ soupsieve==2.5
     # via beautifulsoup4
 stack-data==0.6.3
     # via ipython
-sympy==1.13.1
+sympy==1.13.2
     # via torch
-tensorstore==0.1.63
+tensorstore==0.1.64
     # via
     #   flax
     #   orbax-checkpoint
@@ -560,7 +567,7 @@ threadpoolctl==3.5.0
     # via scikit-learn
 tinycss2==1.3.0
     # via nbconvert
-tokenize-rt==5.2.0
+tokenize-rt==6.0.0
     # via
     #   nbqa
     #   pyupgrade
@@ -581,9 +588,10 @@ tornado==6.4.1
     #   jupyter-server
     #   jupyterlab
     #   terminado
-tqdm==4.66.4
+tqdm==4.66.5
     # via
     #   huggingface-hub
+    #   nltk
     #   transformers
 traitlets==5.14.3
     # via
@@ -599,7 +607,7 @@ traitlets==5.14.3
     #   nbclient
     #   nbconvert
     #   nbformat
-transformers==4.43.3
+transformers==4.44.0
     # via xjax (pyproject.toml)
 triton==3.0.0
     # via torch
@@ -622,11 +630,11 @@ urllib3==2.2.2
     # via
     #   requests
     #   sentry-sdk
-wandb==0.17.5
+wandb==0.17.6
     # via xjax (pyproject.toml)
 wcwidth==0.2.13
     # via prompt-toolkit
-webcolors==24.6.0
+webcolors==24.8.0
     # via jsonschema
 webencodings==0.5.1
     # via
@@ -634,8 +642,8 @@ webencodings==0.5.1
     #   tinycss2
 websocket-client==1.8.0
     # via jupyter-server
-xgboost==2.1.0
+xgboost==2.1.1
     # via xjax (pyproject.toml)
-zipp==3.19.2
+zipp==3.20.0
     # via etils
 -e file://.
