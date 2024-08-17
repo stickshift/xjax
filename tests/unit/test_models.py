@@ -63,7 +63,7 @@ def test_xgb_circle(rng: jax.Array):
     #
 
     # I create xgb model
-    model = xjax.models.sklearn.xgb_classifier(device="cuda")
+    model = xjax.models.sklearn.xgb_classifier()
 
     # I train model
     model = xjax.models.sklearn.train(model, X=X_train, y=y_train)
