@@ -60,6 +60,7 @@ chex==0.1.86
 click==8.1.7
     # via
     #   black
+    #   nltk
     #   wandb
 comm==0.2.2
     # via ipykernel
@@ -94,6 +95,7 @@ filelock==3.15.4
     #   huggingface-hub
     #   torch
     #   transformers
+    #   triton
 flake8==7.1.1
     # via nbqa
 flax==0.8.5
@@ -165,7 +167,9 @@ jinja2==3.1.4
     #   nbconvert
     #   torch
 joblib==1.4.2
-    # via scikit-learn
+    # via
+    #   nltk
+    #   scikit-learn
 json5==0.9.25
     # via jupyterlab-server
 jsonpointer==3.0.0
@@ -273,6 +277,8 @@ nest-asyncio==1.6.0
     #   orbax-checkpoint
 networkx==3.3
     # via torch
+nltk==3.8.1
+    # via xjax (pyproject.toml)
 notebook-shim==0.2.4
     # via jupyterlab
 numpy==2.0.1
@@ -422,7 +428,9 @@ referencing==0.35.1
     #   jsonschema-specifications
     #   jupyter-events
 regex==2024.7.24
-    # via transformers
+    # via
+    #   nltk
+    #   transformers
 requests==2.32.3
     # via
     #   huggingface-hub
@@ -526,6 +534,7 @@ tornado==6.4.1
 tqdm==4.66.5
     # via
     #   huggingface-hub
+    #   nltk
     #   transformers
 traitlets==5.14.3
     # via

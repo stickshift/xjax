@@ -1,6 +1,9 @@
 import logging
 
 import jax
+import jax.numpy as jnp
+
+import pytest
 from pytest import approx
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import train_test_split
@@ -300,3 +303,105 @@ def test_torch_2x5x1_circle(rng: jax.Array):
 
     # Model should get "good" score
     assert auroc > 0.8
+
+
+@pytest.mark.nlp
+def test_nlp_jax_sgns(rng: jax.Array):
+    #
+    # Givens
+    #
+
+    # Hyperparams
+    embedding_size = 2
+    batch_size = 10
+    neg_per_pos = 5
+    num_epochs = 5
+    window_size = 2
+    vocab_size = 5
+    K=1
+
+    # I generate a frequent word-pair sentence dataset
+    sentences = xjax.datasets.freq_word_pair()
+
+    # 
+    # Whens
+    #
+
+    # I preprocess the sentences
+    from collections import Counter
+
+    # I count the tokens
+    tokens = []
+    for sentence in sentences:
+        for tok in sentence:
+            tokens.append(tok)
+
+    # I generate a vocab
+    counts = Counter(tokens).items()
+    sorted_counts = sorted(counts, key=lambda k: k[1], reverse=True)
+    vocab = sorted_counts[:vocab_size]
+
+    # I generate a token lookup
+    idx_to_tok = dict()
+    tok_to_idx = dict()
+    for idx,(tok, count) in enumerate(vocab):
+        idx_to_tok[idx] = tok
+        tok_to_idx[tok] = idx
+    
+    # I generate positive examples
+    len_buffer = window_size//2
+
+    def gen_pos_examples():
+        dataset = []
+        for s in sentences:
+            for i in range(len(s)):
+                for j in range(max(0,i-len_buffer), min(len(s),i+len_buffer)):
+                    if i != j:
+                        if s[i] in tok_to_idx and s[j] in tok_to_idx:
+                            idx_i = tok_to_idx[s[i]]
+                            idx_j = tok_to_idx[s[j]]
+                            dataset.append((idx_i,idx_j))
+        return dataset
+        
+
+    pos_examples = jnp.array(gen_pos_examples())
+
+
+    # I create a skipgram model
+    model, params = xjax.models.sgns.sgns(rng=rng, vocab_size=vocab_size, 
+                                 embedding_size=embedding_size)
+
+    # I log events
+    @train_epoch_completed.connect_via(model)
+    def collect_events(_, *, epoch, loss, elapsed, **__):
+        logger.info(f"epoch={epoch}, loss={loss:0.4f}, elapsed={elapsed:0.4f}")
+    
+    # I train the model
+    params = xjax.models.sgns.train(model, rng=rng, params=params,
+                                   X=pos_examples,
+                                   neg_per_pos=neg_per_pos,
+                                   K= 1,
+                                   epochs=num_epochs,
+                                   batch_size=batch_size,
+                                   learning_rate=0.01)
+
+
+    #
+    # Thens
+    #
+
+
+    # The cosine similarity between the two most frequently adjacent words should be higher
+    # than that between two words that are never adjacent in the dataset
+    
+    def similarity_score(word1, word2):
+
+        idx1 = tok_to_idx[word1]
+        idx2 = tok_to_idx[word2]
+
+        emb1 = params[idx1, :, 0]
+        emb2 = params[idx2, :, 0]
+
+        return jnp.dot(emb1,emb2)/(jnp.linalg.norm(emb1)*jnp.linalg.norm(emb2))
+
+    assert similarity_score("apple", "banana") > similarity_score("peach", "grape")
