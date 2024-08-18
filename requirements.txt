@@ -24,7 +24,6 @@ asttokens==2.4.1
 async-lru==2.0.4
     # via jupyterlab
 attrs==24.2.0
-attrs==24.2.0
     # via
     #   jsonschema
     #   referencing
@@ -96,6 +95,7 @@ filelock==3.15.4
     #   huggingface-hub
     #   torch
     #   transformers
+    #   triton
 flake8==7.1.1
     # via nbqa
 flax==0.8.5

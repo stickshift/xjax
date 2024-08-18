@@ -1,3 +1,5 @@
+import pytest
+
 import jax
 from jax import numpy as jnp
 
@@ -66,3 +68,27 @@ def test_sphere_dataset(rng: jax.Array):
             assert y[i] == 1.0
         else:
             assert y[i] == 0.0
+
+@pytest.mark.nlp
+def test_freq_word_pair_dataset(rng: jax.Array):
+    #
+    # Whens
+    #
+
+    # I generate the frequent word-pair dataset
+    sentences = xjax.datasets.freq_word_pair()
+
+    #
+    # Thens
+    #
+
+    # The most frequent word pair should appear adjacent to each other
+    # At least half the time 
+    def contains_word_pair(sentence, word_pair):
+        return any(word_pair == sentence[i:i+2] for i in range(len(sentence) - 2 + 1))
+
+    n = 0
+    for s in sentences:
+        if contains_word_pair(s, ("apple", "banana")):
+            n += 1
+    assert(n >= len(sentences)/2)

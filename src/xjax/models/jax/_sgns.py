@@ -93,7 +93,8 @@ def train(
         # Iterate over batches
         loss = None
         for i in range(num_iter):
-            batch = _batch(rng=rng, vocab_size=params.shape[0], batch_size=batch_size, neg_per_pos=neg_per_pos, dataset=X)
+            rng, sub_rng = jax.random.split(rng, 2)
+            batch = _batch(rng=sub_rng, vocab_size=params.shape[0], batch_size=batch_size, neg_per_pos=neg_per_pos, dataset=X)
             params, optimizer_state, loss = step_fn(optimizer_state, params, batch)
         
         # Emit signal

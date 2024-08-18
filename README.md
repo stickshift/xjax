@@ -9,7 +9,7 @@ This setup works on an Ubuntu 20.04 machine running on a Cloud service like Goog
 ```sh
 # Install Python 3.8
 sudo apt update
-sudo apt install -y make python3 python3-pip uv
+sudo apt install -y make python3 python3-pip
 
 # Install UV
 curl -LsSf https://astral.sh/uv/install.sh | sh
