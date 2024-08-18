@@ -35,9 +35,9 @@ dynamic = ["version"]
 
 dependencies = [
   "blinker",
-  "cupy",
+  "cupy; sys_platform == 'linux'",
   "flax",
-  "jax[cuda12]",
+  "jax[cuda12]; sys_platform == 'linux'",
   "jupyterlab",
   "nbqa[toolchain]",
   "numpy",
