@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 537 439">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-dasharray: 11.34 11.34;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-6 {
+        font-family: DejaVuSansMono-Bold, 'DejaVu Sans Mono';
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        stroke-dasharray: 11.88 11.88;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-7 {
+        opacity: .7;
+      }
+
+      .cls-8 {
+        font-family: DejaVuSansMono, 'DejaVu Sans Mono';
+        font-size: 12px;
+      }
+
+      .cls-5 {
+        fill: #e6e6e6;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="cls-5" x="-78.5" y="111.5" width="406" height="216" transform="translate(344 95) rotate(90)"/>
+    <g>
+      <text class="cls-8" transform="translate(54.7 43.01)"><tspan x="0" y="0">Input Embeddings</tspan></text>
+      <g>
+        <rect class="cls-3" x="32.5" y="167.5" width="160" height="32" rx="4" ry="4"/>
+        <text class="cls-8" transform="translate(58.32 186.44)"><tspan x="0" y="0">Add &amp; Normalize</tspan></text>
+      </g>
+      <g>
+        <rect class="cls-3" x="32.5" y="95.5" width="160" height="32" rx="4" ry="4"/>
+        <text class="cls-8" transform="translate(79.99 114.44)"><tspan x="0" y="0">Attention</tspan></text>
+      </g>
+      <g>
+        <line class="cls-4" x1="112.5" y1="55.5" x2="112.5" y2="80.32"/>
+        <polygon points="107.51 78.87 112.5 87.5 117.49 78.87 107.51 78.87"/>
+      </g>
+      <g>
+        <line class="cls-4" x1="112.5" y1="135.5" x2="112.5" y2="152.32"/>
+        <polygon points="107.51 150.87 112.5 159.5 117.49 150.87 107.51 150.87"/>
+      </g>
+      <g>
+        <line class="cls-4" x1="216.5" y1="183.5" x2="207.68" y2="183.5"/>
+        <polygon points="209.14 178.51 200.5 183.5 209.14 188.49 209.14 178.51"/>
+      </g>
+      <line class="cls-4" x1="112.5" y1="71.5" x2="216.5" y2="71.5"/>
+      <line class="cls-4" x1="216.5" y1="71" x2="216.5" y2="183.5"/>
+      <text class="cls-8" transform="translate(51.09 401.87)"><tspan x="0" y="0">Output Embeddings</tspan></text>
+      <g>
+        <rect class="cls-3" x="32.5" y="247.5" width="160" height="32" rx="4" ry="4"/>
+        <text class="cls-8" transform="translate(101.66 266.44)"><tspan x="0" y="0">FNN</tspan></text>
+      </g>
+      <g>
+        <rect class="cls-3" x="32.5" y="319.5" width="160" height="32" rx="4" ry="4"/>
+        <text class="cls-8" transform="translate(58.32 338.44)"><tspan x="0" y="0">Add &amp; Normalize</tspan></text>
+      </g>
+      <g>
+        <line class="cls-4" x1="112.5" y1="359.5" x2="112.5" y2="376.32"/>
+        <polygon points="107.51 374.87 112.5 383.5 117.49 374.87 107.51 374.87"/>
+      </g>
+      <g>
+        <line class="cls-4" x1="112.5" y1="287.5" x2="112.5" y2="304.32"/>
+        <polygon points="107.51 302.87 112.5 311.5 117.49 302.87 107.51 302.87"/>
+      </g>
+      <g>
+        <line class="cls-4" x1="112.5" y1="207.5" x2="112.5" y2="232.32"/>
+        <polygon points="107.51 230.87 112.5 239.5 117.49 230.87 107.51 230.87"/>
+      </g>
+      <g>
+        <line class="cls-4" x1="216.5" y1="335.5" x2="207.68" y2="335.5"/>
+        <polygon points="209.14 330.51 200.5 335.5 209.14 340.49 209.14 330.51"/>
+      </g>
+      <line class="cls-4" x1="112.5" y1="223.5" x2="216.5" y2="223.5"/>
+      <line class="cls-4" x1="216.5" y1="223" x2="216.5" y2="335.5"/>
+    </g>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-3" x="360.5" y="48.5" width="160" height="32" rx="4" ry="4"/>
+      <text class="cls-8" transform="translate(415.21 67.44)"><tspan x="0" y="0">Layer 0</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-3" x="360.5" y="120.5" width="160" height="32" rx="4" ry="4"/>
+      <text class="cls-8" transform="translate(415.21 139.44)"><tspan x="0" y="0">Layer 1</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-3" x="360.5" y="250.12" width="160" height="32" rx="4" ry="4"/>
+      <text class="cls-8" transform="translate(415.21 269.06)"><tspan x="0" y="0">Layer N</tspan></text>
+    </g>
+    <g>
+      <line class="cls-4" x1="440.5" y1="16.5" x2="440.5" y2="33.32"/>
+      <polygon points="435.51 31.86 440.5 40.5 445.49 31.86 435.51 31.86"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="440.5" y1="88.5" x2="440.5" y2="105.32"/>
+      <polygon points="435.51 103.86 440.5 112.5 445.49 103.86 435.51 103.86"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="440.5" y1="218.12" x2="440.5" y2="234.94"/>
+      <polygon points="435.51 233.48 440.5 242.12 445.49 233.48 435.51 233.48"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="440.5" y1="290.12" x2="440.5" y2="306.94"/>
+      <polygon points="435.51 305.48 440.5 314.12 445.49 305.48 435.51 305.48"/>
+    </g>
+    <text class="cls-6" transform="translate(427.86 204.6)"><tspan x="0" y="0">...</tspan></text>
+    <g>
+      <line class="cls-4" x1="440.5" y1="160.5" x2="440.5" y2="177.32"/>
+      <polygon points="435.51 175.86 440.5 184.5 445.49 175.86 435.51 175.86"/>
+    </g>
+  </g>
+  <g class="cls-7">
+    <g>
+      <line class="cls-4" x1="232.5" y1="16.5" x2="238.12" y2="18.61"/>
+      <line class="cls-1" x1="248.73" y1="22.59" x2="349.57" y2="60.4"/>
+      <polyline class="cls-4" points="354.88 62.39 360.5 64.5 358.48 70.15"/>
+      <line class="cls-2" x1="354.48" y1="81.33" x2="236.52" y2="411.26"/>
+      <line class="cls-4" x1="234.52" y1="416.85" x2="232.5" y2="422.5"/>
+    </g>
+  </g>
+</svg>

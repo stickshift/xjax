@@ -39,14 +39,14 @@ def test_zero_shot_classification(device: torch.device):
     #
 
     # I created off-the-shelf zero-shot classification pipeline
-    classifier = pipeline("zero-shot-classification", device=device)
+    model = pipeline("zero-shot-classification", device=device)
 
     #
     # Whens
     #
 
     # I classify a sentence as {"education", "politics", "business"}
-    outputs = classifier(
+    outputs = model(
         "This is a course about the Transformers library",
         candidate_labels=["education", "politics", "business"],
     )
@@ -57,3 +57,26 @@ def test_zero_shot_classification(device: torch.device):
 
     # The sentence should be classified as education
     assert outputs["labels"][np.argmax(outputs["scores"])] == "education"
+
+
+def test_text_generation(device: torch.device):
+
+    #
+    # Givens
+    #
+
+    # I created off-the-shelf text generation pipeline
+    model = pipeline("text-generation", device=device)
+
+    #
+    # Whens
+    #
+
+    # I generate text given a prompt
+    outputs = model("The capital of Massachusetts is")
+
+    #
+    # Thens
+    #
+
+    pass

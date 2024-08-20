@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.5 416">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        font-family: DejaVuSansMono, 'DejaVu Sans Mono';
+        font-size: 12px;
+      }
+
+      .cls-3 {
+        opacity: .1;
+      }
+    </style>
+  </defs>
+  <rect class="cls-3" x="22.75" y="-22.75" width="416" height="461.5" transform="translate(438.75 -22.75) rotate(90)"/>
+  <g>
+    <g>
+      <text class="cls-4" transform="translate(208 318.94)"><tspan x="0" y="0">Task-Specific Predictions</tspan></text>
+      <text class="cls-4" transform="translate(208 102.94)"><tspan x="0" y="0">Input Sequence</tspan></text>
+      <text class="cls-4" transform="translate(208 174.94)"><tspan x="0" y="0">Position-Encoded Input Embeddings</tspan></text>
+      <text class="cls-4" transform="translate(208 246.94)"><tspan x="0" y="0">Contextualized Output Embeddings</tspan></text>
+      <text class="cls-4" transform="translate(208 30.94)"><tspan x="0" y="0">Raw Inputs</tspan></text>
+      <text class="cls-4" transform="translate(208 390.94)"><tspan x="0" y="0">Rendered Outputs</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-1" x="16" y="48" width="160" height="32" rx="4" ry="4"/>
+      <text class="cls-4" transform="translate(56.26 66.94)"><tspan x="0" y="0">Pre Process</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-1" x="16" y="120" width="160" height="32" rx="4" ry="4"/>
+      <text class="cls-4" transform="translate(63.49 138.94)"><tspan x="0" y="0">Embedding</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-1" x="16" y="192" width="160" height="32" rx="4" ry="4"/>
+      <text class="cls-4" transform="translate(34.59 210.94)"><tspan x="0" y="0">Transformer Stack</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-1" x="16" y="264" width="160" height="32" rx="4" ry="4"/>
+      <text class="cls-4" transform="translate(81.55 282.94)"><tspan x="0" y="0">Head</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-1" x="16" y="336" width="160" height="32" rx="4" ry="4"/>
+      <text class="cls-4" transform="translate(52.65 354.94)"><tspan x="0" y="0">Post Process</tspan></text>
+    </g>
+    <g>
+      <line class="cls-2" x1="96" y1="88" x2="96" y2="104.82"/>
+      <polygon points="91.01 103.36 96 112 100.99 103.36 91.01 103.36"/>
+    </g>
+    <g>
+      <line class="cls-2" x1="96" y1="160" x2="96" y2="176.82"/>
+      <polygon points="91.01 175.36 96 184 100.99 175.36 91.01 175.36"/>
+    </g>
+    <g>
+      <line class="cls-2" x1="96" y1="232" x2="96" y2="248.82"/>
+      <polygon points="91.01 247.36 96 256 100.99 247.36 91.01 247.36"/>
+    </g>
+    <g>
+      <line class="cls-2" x1="96" y1="304" x2="96" y2="320.82"/>
+      <polygon points="91.01 319.36 96 328 100.99 319.36 91.01 319.36"/>
+    </g>
+    <g>
+      <line class="cls-2" x1="96" y1="16" x2="96" y2="32.82"/>
+      <polygon points="91.01 31.36 96 40 100.99 31.36 91.01 31.36"/>
+    </g>
+    <g>
+      <line class="cls-2" x1="96" y1="376" x2="96" y2="392.82"/>
+      <polygon points="91.01 391.36 96 400 100.99 391.36 91.01 391.36"/>
+    </g>
+  </g>
+</svg>

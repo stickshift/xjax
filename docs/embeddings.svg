@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 632 228">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: DejaVuSansMono-Bold, 'DejaVu Sans Mono';
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        fill: #bcf5e7;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: #e8e6b5;
+      }
+
+      .cls-4, .cls-6 {
+        fill: none;
+      }
+
+      .cls-7 {
+        font-size: 14px;
+      }
+
+      .cls-7, .cls-8 {
+        font-family: DejaVuSansMono, 'DejaVu Sans Mono';
+      }
+
+      .cls-8 {
+        font-size: 12px;
+      }
+
+      .cls-6 {
+        opacity: .1;
+      }
+
+      .cls-5 {
+        fill: #52f7ce;
+      }
+    </style>
+  </defs>
+  <g>
+    <g>
+      <g>
+        <polygon class="cls-5" points="208 16.16 160 16.16 152 24.16 152 56.16 216 56.16 216 24.16 208 16.16"/>
+        <text class="cls-8" transform="translate(165.94 39.1)"><tspan x="0" y="0">[CLS]</tspan></text>
+      </g>
+      <g>
+        <polygon class="cls-5" points="288 16.16 240 16.16 232 24.16 232 56.16 296 56.16 296 24.16 288 16.16"/>
+        <text class="cls-8" transform="translate(260.39 39.1)"><tspan x="0" y="0">I</tspan></text>
+      </g>
+      <g>
+        <polygon class="cls-5" points="368 16.16 320 16.16 312 24.16 312 56.16 376 56.16 376 24.16 368 16.16"/>
+        <text class="cls-8" transform="translate(329.55 39.1)"><tspan x="0" y="0">love</tspan></text>
+      </g>
+      <g>
+        <polygon class="cls-5" points="448 16.16 400 16.16 392 24.16 392 56.16 456 56.16 456 24.16 448 16.16"/>
+        <text class="cls-8" transform="translate(413.16 39.1)"><tspan x="0" y="0">ice</tspan></text>
+      </g>
+      <g>
+        <polygon class="cls-5" points="528 16.16 480 16.16 472 24.16 472 56.16 536 56.16 536 24.16 528 16.16"/>
+        <text class="cls-8" transform="translate(485.94 39.1)"><tspan x="0" y="0">cream</tspan></text>
+      </g>
+      <g>
+        <polygon class="cls-5" points="608 16.16 560 16.16 552 24.16 552 56.16 616 56.16 616 24.16 608 16.16"/>
+        <text class="cls-8" transform="translate(565.94 39.1)"><tspan x="0" y="0">[SEP]</tspan></text>
+      </g>
+    </g>
+    <g>
+      <rect class="cls-3" x="152" y="88.16" width="64" height="40"/>
+      <text class="cls-7" transform="translate(167.5 109.26)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(175.93 113.92) scale(.58)"><tspan x="0" y="0">[CLS]</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-3" x="232" y="88.16" width="64" height="40"/>
+      <text class="cls-7" transform="translate(257.33 109.26)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(265.76 113.92) scale(.58)"><tspan x="0" y="0">I</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-3" x="312" y="88.16" width="64" height="40"/>
+      <text class="cls-7" transform="translate(329.96 109.26)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(338.39 113.92) scale(.58)"><tspan x="0" y="0">love</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-3" x="392" y="88.16" width="64" height="40"/>
+      <text class="cls-7" transform="translate(412.41 109.26)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(420.84 113.92) scale(.58)"><tspan x="0" y="0">ice</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-3" x="472" y="88.16" width="64" height="40"/>
+      <text class="cls-7" transform="translate(487.5 109.26)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(495.93 113.92) scale(.58)"><tspan x="0" y="0">cream</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-3" x="552" y="88.16" width="64" height="40"/>
+      <text class="cls-7" transform="translate(567.5 109.26)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(575.93 113.92) scale(.58)"><tspan x="0" y="0">[SEP]</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-2" x="152" y="171.84" width="64" height="40"/>
+      <text class="cls-7" transform="translate(177.33 192.94)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(185.76 197.6) scale(.58)"><tspan x="0" y="0">0</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-2" x="232" y="171.84" width="64" height="40"/>
+      <text class="cls-7" transform="translate(257.33 192.94)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(265.76 197.6) scale(.58)"><tspan x="0" y="0">1</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-2" x="312" y="171.84" width="64" height="40"/>
+      <text class="cls-7" transform="translate(337.33 192.94)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(345.76 197.6) scale(.58)"><tspan x="0" y="0">2</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-2" x="392" y="171.84" width="64" height="40"/>
+      <text class="cls-7" transform="translate(417.33 192.94)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(425.76 197.6) scale(.58)"><tspan x="0" y="0">3</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-2" x="472" y="171.84" width="64" height="40"/>
+      <text class="cls-7" transform="translate(497.33 192.94)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(505.76 197.6) scale(.58)"><tspan x="0" y="0">4</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-2" x="552" y="171.84" width="64" height="40"/>
+      <text class="cls-7" transform="translate(577.33 192.94)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-7" transform="translate(585.76 197.6) scale(.58)"><tspan x="0" y="0">5</tspan></text>
+    </g>
+    <text class="cls-8" transform="translate(83.88 39.1)"><tspan x="0" y="0">Input</tspan></text>
+    <text class="cls-8" transform="translate(83.88 103.9)"><tspan x="0" y="0">Value</tspan><tspan x="-36.12" y="14.4">Embeddings</tspan></text>
+    <text class="cls-8" transform="translate(62.2 187.58)"><tspan x="0" y="0">Position</tspan><tspan x="-14.45" y="14.4">Embeddings</tspan></text>
+    <line class="cls-4" x1="16" y1="72.16" x2="616" y2="72.16"/>
+    <text class="cls-1" transform="translate(177.38 155.17)"><tspan x="0" y="0">+</tspan></text>
+    <text class="cls-1" transform="translate(257.38 155.17)"><tspan x="0" y="0">+</tspan></text>
+    <text class="cls-1" transform="translate(337.38 155.17)"><tspan x="0" y="0">+</tspan></text>
+    <text class="cls-1" transform="translate(417.38 155.17)"><tspan x="0" y="0">+</tspan></text>
+    <text class="cls-1" transform="translate(497.38 155.17)"><tspan x="0" y="0">+</tspan></text>
+    <text class="cls-1" transform="translate(577.38 155.17)"><tspan x="0" y="0">+</tspan></text>
+  </g>
+  <rect class="cls-6" x="202" y="-202" width="228" height="632" transform="translate(430 -202) rotate(90)"/>
+</svg>
